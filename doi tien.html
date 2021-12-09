@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doi tien</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="text"id="amount"></td>
+        <td>
+            <select id="from">
+                <option value="vnd">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+                <option value="vnd">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="convert()">Convert</button>
+        </td>
+    </tr>
+    <tr>
+        <td><p id="result"></p></td>
+    </tr>
+</table>
+<script>
+    function convert() {
+        let amount = document.getElementById("amount").value;
+        let  fromcurrency = document.getElementById("from").value;
+        let  tocurrency = document.getElementById("to").value;
+        if (fromcurrency === tocurrency) {
+            let result = amount;
+            document.getElementById("result").innerHTML = "convert:" + result;
+        }
+        else if (fromcurrency==="vnd"){
+            let result = amount/23000;
+            document.getElementById("result").innerHTML = "convert:" + result;
+        }
+        else {
+            let result = amount*23000;
+            document.getElementById("result").innerHTML = "convert:" + result+tocurrency;
+        }
+    }
+</script>
+</body>
+</html>
